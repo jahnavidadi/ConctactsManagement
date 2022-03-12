@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>SignUP Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
+
+
+
+</head>
+<body>
+
+    <div class="form">
+        <div class="tab-content">
+            <div id="signup">
+                <h1>Sign Up</h1>
+                <form action="#" th:action="@{/signup}" th:object="${signup}" method="post">
+                    <div class="field-wrap">
+                        <input type="email" th:field="*{email}" name="email" placeholder="Email address" required />
+                    </div>
+
+                    <div class="field-wrap">
+                        <input type="password" th:field="*{password}" name="password" id="password" placeholder="Password" title="Password min 8 characters. At least one UPPERCASE and one lowercase letter" required pattern="(?=^.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/>
+                    </div>
+                    <div class="field-wrap">
+                        <input type="text" th:field="*{secret}" name="secret" placeholder="Secret"  autofocus autocomplete="off" required />
+                    </div>
+                    <p class="signin"><a href="/login">Sign In?</a></p>
+                    <button type="submit" class="button button-block"/>Sign Up</button>
+
+                </form>
+
+            </div>
+
+
+
+        </div><!-- tab-content -->
+
+    </div> <!-- /form -->
+</body>
+</html>
