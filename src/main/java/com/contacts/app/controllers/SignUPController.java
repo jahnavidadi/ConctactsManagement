@@ -33,7 +33,8 @@ public class SignUPController {
 	public String signUPSubmit(@ModelAttribute SignUp signUp, Model model) {
 		boolean validFormData = helper.validateFormData(signUp);
 		if (!validFormData){
-			model.addAttribute("signup", new SignIn());
+			model.addAttribute("error", "Email already Exists");
+			model.addAttribute("signup", new SignUp());
 			return "signup";
 		}
 		userRepo.save(new User(signUp.getEmail(),signUp.getPassword(),signUp.getSecret()));
